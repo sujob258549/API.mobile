@@ -10,8 +10,12 @@
     <title>jason project</title>
 </head>
 <style>
-    .main-containers img{
+    .main-containers img {
         border-radius: 10px;
+    }
+
+    #buttons {
+        margin-top: 30px;
     }
 </style>
 
@@ -25,17 +29,20 @@
     </header>
 
     <main class="container mx-auto">
-        
+
 
         <div class="mt-10 mb-10 flex gap-2 justify-end mx-5 md:ml-0">
-            <input id="input-field" type="text" placeholder="search.........." class="input input-bordered input-primary md:w-80 w-[70%] max-w-xs " />
-            <button id="input-buttons" onkeyup="inputButtons()" onclick="inputButtons()" class="btn btn-warning">search</button>
+            <input id="input-field" type="text" placeholder="search.........."
+                class="input input-bordered input-primary md:w-80 w-[70%] max-w-xs " />
+            <button id="input-buttons" onkeyup="inputButtons()" onclick="inputButtons()"
+                class="btn btn-warning">search</button>
         </div>
         <!-- loading-spinner -->
         <div id="loading-field" class="text-center my-28 hidden ">
             <span class="loading loading-spinner text-5xl text-warning"></span>
         </div>
-        <div id="main-container" class="main-containers grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:mx-0 mx-5 mb-10">
+        <div id="main-container"
+            class="main-containers grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:mx-0 mx-5 mb-10">
             <!-- <div class="card w-96 bg-gray-200-100 shadow-xl">
                 <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
                 </figure>
@@ -49,9 +56,23 @@
             </div> -->
         </div>
 
-        <div>
-            <button id="show-all"  class="hidden  btn btn-outline btn-warning">Show All</button>
+        <div class="text-center my-10">
+            <button id="show-all" class=" hidden text-center  btn btn-outline btn-warning">Show All</button>
         </div>
+
+        <!-- Open the modal using ID.showModal() method -->
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div id="modal_box" class="modal-box">
+               
+                
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
     </main>
     <footer>
 

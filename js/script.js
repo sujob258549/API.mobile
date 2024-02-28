@@ -16,17 +16,17 @@ const allCard = phones => {
 
     // show all container..........................
     const showAll = document.getElementById('show-all');
-    if (phones.length < 10) {
+    if (phones.length < 6) {
         showAll.classList.remove('hidden');
-
     };
+    showAll.classList.remove('hidden');
 
     // fast 9phone show
     phones = phones.slice(0, 9);
 
     // forEach loop............
     phones.forEach(phone => {
-        console.log(phone);
+        // console.log(phone);
         const divContainer = document.createElement('div');
         divContainer.classList = `card  bg-gray-200 w-full  shadow-xl pt-5`;
         divContainer.innerHTML = `
@@ -36,25 +36,28 @@ const allCard = phones => {
            <h2 class="card-title">${phone.brand}</h2>
            <h3 class="card-title">${phone.phone_name}</h3>
            <p>${phone.slug}</p>
-           <div class="card-actions justify-end">
-               <button class="btn btn-primary">Buy Now</button>
+           <div id="buttons" class="card-actions justify-center">
+               <button onclick="showDetails('${phone.slug}');my_modal_5.showModal()" class="btn btn-primary">Show Details</button>
            </div>
        </div>
        `;
-
-        console.log(phoneClass)
+        const phoneClass = phone.image.classList = `rounded-3xl`;
+        // console.log(phoneClass)
         mainContainer.appendChild(divContainer);
-
+        
+        // creats anw div
+       
 
     });
-// remove class of loading
+
+    //  class hidden add......loading
     loading(false);
 };
 
 const inputButtons = () => {
     const inputField = document.getElementById('input-field');
     const inputValue = inputField.value;
-    console.log(inputValue);
+    // console.log(inputValue);
     // coll loading
     loading(true);
     // coll api
@@ -66,15 +69,47 @@ const inputButtons = () => {
 
 
 
-const loading = (istrue) =>{
+const loading = (istrue) => {
     const loadingField = document.getElementById('loading-field');
-    if(istrue){
+    if (istrue) {
         loadingField.classList.remove('hidden');
     }
-    else{
+    else {
         loadingField.classList.add('hidden');
     }
-}
+};
+
+const showDetails = async (id) => {
+    console.log(id);
+
+    const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
+    const allData = await res.json();
+    console.log(allData);
+
+
+    details(allData);
+};
+
+const details = (phone)=>{
+
+    const div = document.createElement('div');
+    div.innerHTML = `
+    <img src="${phone.image}" />
+    
+    <div class="card-body">
+        <h2 class="card-title">${phone.name}</h2>
+        <h3 class="card-title">${phone.releaseDate}</h3>
+        <p>${phone.slug}</p>
+        <div id="buttons" class="card-actions justify-center">
+            <button onclick="showDetails('${phone.slug}');my_modal_5.showModal()" class="btn btn-primary">Show Details</button>
+        </div>
+    </div>
+    
+    `;
+
+    const modalBox = document.getElementById('modal_box');
+     modalBox.appendChild(div);
+};
 
 
 
