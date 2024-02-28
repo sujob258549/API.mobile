@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind css and daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>jason project</title>
+</head>
+<style>
+    .main-containers img{
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+
+    <h3 class="text-8xl font-bold text-center">md sujon mia</h3>
+
+
+    <header>
+
+    </header>
+
+    <main class="container mx-auto">
+        
+
+        <div class="mt-10 mb-10 flex gap-2 justify-end mx-5 md:ml-0">
+            <input id="input-field" type="text" placeholder="search.........." class="input input-bordered input-primary md:w-80 w-[70%] max-w-xs " />
+            <button id="input-buttons" onkeyup="inputButtons()" onclick="inputButtons()" class="btn btn-warning">search</button>
+        </div>
+        <!-- loading-spinner -->
+        <div id="loading-field" class="text-center my-28 hidden ">
+            <span class="loading loading-spinner text-5xl text-warning"></span>
+        </div>
+        <div id="main-container" class="main-containers grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:mx-0 mx-5 mb-10">
+            <!-- <div class="card w-96 bg-gray-200-100 shadow-xl">
+                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Shoes!</h2>
+                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-primary">Buy Now</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+        <div>
+            <button id="show-all"  class="hidden  btn btn-outline btn-warning">Show All</button>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
